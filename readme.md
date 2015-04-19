@@ -6,15 +6,19 @@ TinyJSTemplate is a very simple template engine. Well, actually, not a real *eng
 
 ## Simple replacement
 
+`replacementData` can be a simple JavaScript object. Nested objects are basically supported.
+
 ```javascript
-var text = 'This is a ${kind_of} test for ${target}.';
-var replacementData = { kind_of: 'simple', target: 'TJST' };
+var text = 'This is a ${kind_of} test for ${target.engine}.';
+var replacementData = { kind_of: 'simple', target: { id: '1', engine: 'TJST'} };
 var tjstEngine = new TJST();
 var replacedText = tjstEngine.replace(text, replacementData);
 // result is: 'This is a simple test for TJST.'
 ```
 
 ## Lookup function
+
+Instead of a JavaScript object a lookup function can be provided. The first parameter is the matched replacement name, e.g. `kind_of`, the second parameter is the replacement index, starting with `0`.
 
 ```javascript
 var text = 'This is a ${kind_of} test for ${target}.';
