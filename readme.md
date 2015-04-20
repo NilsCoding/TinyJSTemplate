@@ -36,6 +36,13 @@ var replacedText = tjstEngine.replace(text, replacementFunction);
 // result is: 'This is a nice test for dynamic replacement.'
 ```
 
+
+# Limitations
+
+ - TinyJSTemplate used regular expressions to replace the template matches, so the text should not be too long.
+ - There is no minified version (yet) because the file is currently just 2kB. If you need one, please compress the original version yourself (you can also shorten the licence header).
+ - Nested/recursive replacements like `${ab.${cd}}` are not supported and due to the complexity needed to implement that I highly doubt it will be supported any time soon.
+
 # License
 
 TinyJSTemplate is provided under MIT License, see http://opensource.org/licenses/MIT
